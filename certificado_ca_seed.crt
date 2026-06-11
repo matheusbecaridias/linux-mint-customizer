@@ -1,0 +1,40 @@
+-----BEGIN CERTIFICATE-----
+MIIC3jCCAcagAwIBAgIEcwQhZDANBgkqhkiG9w0BAQsFADAgMR4wHAYDVQQDExVm
+aWx0cm93ZWIuc2VlZC5wYXJhbmEwHhcNMjQxMjEwMTYzOTMyWhcNMzQxMjExMTYz
+OTMxWjAgMR4wHAYDVQQDExVmaWx0cm93ZWIuc2VlZC5wYXJhbmEwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCkkO7llMzQ3nZXCK035Lb8LicfrRCu+8do
+g5iYnhMjSdQxldkFLpjP5kzeNKyUMvo+ToNooQv3vDH9fxvn6Zp3PZaJ9VsKMljM
+xgchfZ4Ol7ytSWZf3TOXTjUqeOOZ5KV5aD/t9IMts2KYGwfzvwOT+ujAru8cfuwg
+8S4A9SWEJDEONZvWdYbCz9b0Jc7Nkk8nDMWe2bfERt9E93m7KgtJgkIrBg7iH3Qs
+wsGzaUm21tkj8ipuRJM9KgNAdkkpzcoKziLQurWLiw01JZFLkd2WZ4n2Jkgv7zpA
+ABJZxzchtx3y9f8QB+Zlsh7duZRo4HOcHmk7AbryZgvIknsXCGKnAgMBAAGjIDAe
+MA8GA1UdEwEB/wQFMAMBAf8wCwYDVR0PBAQDAgGGMA0GCSqGSIb3DQEBCwUAA4IB
+AQBX5ZBKey4kqhWnWQQZkIBJGJaCP66malI7cM6pMSVBYzIY+d7sTi86xWa65hIn
+TNCtyT+nGZI3PTPvEui/McQ1Dt8AUQPhcqeTFget0RipYaJHVqMToQP8G2s9ZKlQ
+9qpTGJ+BbXgLKJbTgDe/IU9AhPJZQAEEFXAvRHvjlbQP0Juo5MvVDSP8iJLsBe0m
+HQhjnhn0MvTUf+FRceQHCL9zcHt5YSPQZwb50svOLXR6S3E6wChsyQQOrMbzAZSP
+HSILAQCsgCbyq18zNGikXdzirGqC9DkEhoPU3TaFu2ivzMbHorDoBEz17TBReVGv
+A1i4xDdIu0s2H1zTqFsQ8rEs
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=CN = *.google.com
+issuer=CN = filtroweb.seed.parana
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ECDSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 4220 bytes and written 383 bytes
+Verification error: certificate signature failure
+---
+New, TLSv1.3, Cipher is TLS_AES_128_GCM_SHA256
+Server public key is 256 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 7 (certificate signature failure)
+---
