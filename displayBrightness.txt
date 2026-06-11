@@ -1,0 +1,2 @@
+ xrandr | grep " connected"
+xrandr --output VGA-1 --brightness 0.6
