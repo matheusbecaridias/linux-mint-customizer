@@ -1,0 +1,29 @@
+Como o seu dispositivo é um pen drive, as duas melhores opções de formato são ExFAT ou FAT32. Eles garantem que você consiga conectar o pen drive em computadores com Windows, Mac e televisões sem nenhum problema de compatibilidade. [1, 2, 3, 4, 5] 
+Siga este passo a passo rápido para formatar o seu pen drive /dev/sdb:
+## 1. Desmonte o pen drive [6] 
+O Linux bloqueia a formatação de dispositivos ativos. Desmonte todas as partições dele: [7] 
+
+sudo umount /dev/sdb*
+
+## 2. Escolha o comando de formatação [8] 
+
+* Opção A: Formato ExFAT (Recomendado)
+Ideal para pen drives modernos (acima de 32GB). Aceita arquivos de qualquer tamanho (como filmes pesados em 4K).
+
+sudo mkfs.exfat /dev/sdb1
+
+* Opção B: Formato FAT32 (Compatibilidade Máxima)
+Ideal para pen drives antigos, som automotivo ou atualização de BIOS. Limitação: não aceita arquivos individuais maiores que 4GB.
+
+sudo mkfs.vfat -F 32 -n "PENDRIVE" /dev/sdb1
+
+(O parâmetro -n "PENDRIVE" define o nome que aparecerá quando você plugar o dispositivo).
+
+## 3. Confirme o sucesso
+Para garantir que o formato foi aplicado, liste os dispositivos novamente:
+
+sudo lsblk -f
+
+------------------------------
+Se você encontrou algum erro como "device or resource busy" ou "command not found", me avise para que eu te envie o comando de correção específico!
+
