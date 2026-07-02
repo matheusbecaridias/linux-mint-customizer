@@ -1,6 +1,46 @@
-Com base na reestruturação dos seus scripts para leitura via arquivo JSON e na nova organização das ferramentas, preparei um **README.md** totalmente atualizado e personalizado para o seu ambiente e diretório atual.
+# 📊 Docling vs MarkItDown: Qual escolher?
 
-Abaixo está o conteúdo pronto para você salvar no seu arquivo `README.MD`:
+Este documento apresenta um comparativo técnico e prático entre os dois motores de conversão configurados neste ambiente (`converter_doc.py` e `converter_mark.py`), ajudando a decidir qual é a melhor escolha para o processamento de seus arquivos.
+
+---
+
+## 🧭 Resumo Rápido (TL;DR)
+* **Use o Docling (`converter_doc.py`) se:** Seu foco for PDFs complexos, artigos acadêmicos estruturados em duas colunas, relatórios com tabelas densas ou imagens que necessitem de OCR de layout.
+* **Use o MarkItDown (`converter_mark.py`) se:** Você tiver uma grande quantidade de arquivos simples (PDFs puramente textuais), arquivos do Microsoft Office (`.docx`, `.pptx`, `.xlsx`) e precisar de uma conversão extremamente rápida que não sobrecarregue o hardware.
+
+---
+
+## 🔄 Comparativo Direto
+
+| Critério | 🐳 Docling (IBM) | ⚡ MarkItDown (Microsoft) |
+| :--- | :--- | :--- |
+| **Foco Principal** | Ingestão de dados rica e análise de layout baseada em IA | Versatilidade, agilidade e interoperação com formatos Office |
+| **Velocidade** | **Moderada a Lenta** (Exige processamento de CPU para modelos) | **Muito Rápida** (Processamento textual leve) |
+| **Consumo de Recursos** | **Alto** (Puxa bastante uso dos núcleos da CPU) | **Baixo** (Muito leve, ideal para rodar em segundo plano) |
+| **PDFs Acadêmicos (Duas colunas)** | ⭐ **Excelente** (Lê na ordem correta sem misturar os lados) | 😐 **Regular** (Pode juntar linhas de colunas diferentes) |
+| **Tabelas Complexas** | ⭐ **Excelente** (Gera tabelas Markdown estruturadas e limpas) | 🛠️ **Bom** (Extrai o conteúdo, mas pode perder alinhamentos complexos) |
+| **Formatos do Office (`.docx`, `.xlsx`)** | 🛠️ **Bom** (Foco menor nestes formatos) | ⭐ **Excelente** (Suporte nativo impecável) |
+
+---
+
+## 🛠️ Análise Técnica Orientada ao Hardware (ThinkPad T420)
+
+### 1. Docling (IBM)
+O Docling funciona baixando e executando pequenos modelos de visão computacional e detecção de objetos localmente. 
+* **Otimização para CPU:** Como o T420 não possui placa de vídeo dedicada (GPU), o Docling ativa automaticamente o modo *CPU Fallback* usando a biblioteca `PyTorch`. 
+* **Impacto no Sistema:** O script `converter_doc.py` está travado em `max_workers=4` para balancear a carga. Durante a execução, a temperatura do processador pode subir e o cooler vai acelerar, pois ele simula o processamento de uma IA diretamente nos núcleos físicos do seu Intel Core de 2ª geração.
+
+### 2. MarkItDown (Microsoft)
+O MarkItDown adota uma abordagem de engenharia de software tradicional baseada em extração direta de metadados e streams de texto.
+* **Otimização para CPU:** É nativamente feito para rodar na CPU, sem o overhead de carregar tensores ou pesos de modelos neurais complexos.
+* **Impacto no Sistema:** O script `converter_mark.py` roda de forma suave, consome pouquíssima memória RAM e processa arquivos em sequência com velocidade notável, sendo a melhor escolha para rotinas diárias massivas de arquivos textuais comuns.
+
+---
+
+## 💡 Recomendações de Fluxo de Trabalho
+
+1. **Abordagem Híbrida (Recomendada):** Mantenha seus arquivos organizados em subpastas no seu `diretorio_raiz` (configurado no `config.json`). Separe os livros escaneados ou artigos com tabelas e rode o `converter_doc.py` especificamente para eles. Para o restante dos documentos comuns, use o `converter_mark.py`.
+2. **Checagem de Duplicados:** Ambos os scripts foram programados para **pular** arquivos que já possuem um equivalente `.md` gerado na mesma pasta. Isso permite que você mude de conversor no mesmo diretório sem retrabalho ou perda de tempo.
 
 ```markdown
 # 📄 PDF & Docs to Markdown Converters (JSON Configured)
