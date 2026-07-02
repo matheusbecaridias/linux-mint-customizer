@@ -1,11 +1,11 @@
 # 📊 Docling vs MarkItDown: Qual escolher?
 
-Este documento apresenta um comparativo técnico e prático entre os dois motores de conversão configurados neste ambiente (`converter_doc.py` e `converter_mark.py`), ajudando a decidir qual é a melhor escolha para o processamento de seus arquivos.
+Este documento apresenta um comparativo técnico e prático entre os dois motores de conversão configurados neste ambiente (`doc.py` e `mark.py`), ajudando a decidir qual é a melhor escolha para o processamento de seus arquivos.
 
 ---
 
 ## 🧭 Resumo Rápido (TL;DR)
-* **Use o Docling (`oc.py`) se:** Seu foco for PDFs complexos, artigos acadêmicos estruturados em duas colunas, relatórios com tabelas densas ou imagens que necessitem de OCR de layout.
+* **Use o Docling (`doc.py`) se:** Seu foco for PDFs complexos, artigos acadêmicos estruturados em duas colunas, relatórios com tabelas densas ou imagens que necessitem de OCR de layout.
 * **Use o MarkItDown (`mark.py`) se:** Você tiver uma grande quantidade de arquivos simples (PDFs puramente textuais), arquivos do Microsoft Office (`.docx`, `.pptx`, `.xlsx`) e precisar de uma conversão extremamente rápida que não sobrecarregue o hardware.
 
 ---
@@ -28,18 +28,18 @@ Este documento apresenta um comparativo técnico e prático entre os dois motore
 ### 1. Docling (IBM)
 O Docling funciona baixando e executando pequenos modelos de visão computacional e detecção de objetos localmente. 
 * **Otimização para CPU:** Como o T420 não possui placa de vídeo dedicada (GPU), o Docling ativa automaticamente o modo *CPU Fallback* usando a biblioteca `PyTorch`. 
-* **Impacto no Sistema:** O script `converter_doc.py` está travado em `max_workers=4` para balancear a carga. Durante a execução, a temperatura do processador pode subir e o cooler vai acelerar, pois ele simula o processamento de uma IA diretamente nos núcleos físicos do seu Intel Core de 2ª geração.
+* **Impacto no Sistema:** O script `doc.py` está travado em `max_workers=4` para balancear a carga. Durante a execução, a temperatura do processador pode subir e o cooler vai acelerar, pois ele simula o processamento de uma IA diretamente nos núcleos físicos do seu Intel Core de 2ª geração.
 
 ### 2. MarkItDown (Microsoft)
 O MarkItDown adota uma abordagem de engenharia de software tradicional baseada em extração direta de metadados e streams de texto.
 * **Otimização para CPU:** É nativamente feito para rodar na CPU, sem o overhead de carregar tensores ou pesos de modelos neurais complexos.
-* **Impacto no Sistema:** O script `converter_mark.py` roda de forma suave, consome pouquíssima memória RAM e processa arquivos em sequência com velocidade notável, sendo a melhor escolha para rotinas diárias massivas de arquivos textuais comuns.
+* **Impacto no Sistema:** O script `mark.py` roda de forma suave, consome pouquíssima memória RAM e processa arquivos em sequência com velocidade notável, sendo a melhor escolha para rotinas diárias massivas de arquivos textuais comuns.
 
 ---
 
 ## 💡 Recomendações de Fluxo de Trabalho
 
-1. **Abordagem Híbrida (Recomendada):** Mantenha seus arquivos organizados em subpastas no seu `diretorio_raiz` (configurado no `config.json`). Separe os livros escaneados ou artigos com tabelas e rode o `converter_doc.py` especificamente para eles. Para o restante dos documentos comuns, use o `converter_mark.py`.
+1. **Abordagem Híbrida (Recomendada):** Mantenha seus arquivos organizados em subpastas no seu `diretorio_raiz` (configurado no `config.json`). Separe os livros escaneados ou artigos com tabelas e rode o `doc.py` especificamente para eles. Para o restante dos documentos comuns, use o `mark.py`.
 2. **Checagem de Duplicados:** Ambos os scripts foram programados para **pular** arquivos que já possuem um equivalente `.md` gerado na mesma pasta. Isso permite que você mude de conversor no mesmo diretório sem retrabalho ou perda de tempo.
 
 ```markdown
