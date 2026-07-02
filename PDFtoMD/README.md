@@ -5,8 +5,8 @@ Este documento apresenta um comparativo técnico e prático entre os dois motore
 ---
 
 ## 🧭 Resumo Rápido (TL;DR)
-* **Use o Docling (`converter_doc.py`) se:** Seu foco for PDFs complexos, artigos acadêmicos estruturados em duas colunas, relatórios com tabelas densas ou imagens que necessitem de OCR de layout.
-* **Use o MarkItDown (`converter_mark.py`) se:** Você tiver uma grande quantidade de arquivos simples (PDFs puramente textuais), arquivos do Microsoft Office (`.docx`, `.pptx`, `.xlsx`) e precisar de uma conversão extremamente rápida que não sobrecarregue o hardware.
+* **Use o Docling (`oc.py`) se:** Seu foco for PDFs complexos, artigos acadêmicos estruturados em duas colunas, relatórios com tabelas densas ou imagens que necessitem de OCR de layout.
+* **Use o MarkItDown (`mark.py`) se:** Você tiver uma grande quantidade de arquivos simples (PDFs puramente textuais), arquivos do Microsoft Office (`.docx`, `.pptx`, `.xlsx`) e precisar de uma conversão extremamente rápida que não sobrecarregue o hardware.
 
 ---
 
