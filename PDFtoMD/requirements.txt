@@ -1,0 +1,2 @@
+docling>=2.0.0
+markitdown>=0.0.1
